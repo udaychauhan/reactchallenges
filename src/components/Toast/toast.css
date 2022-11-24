@@ -1,0 +1,12 @@
+.toast-container {
+  right: 20px;
+  position: absolute;
+  background: pink;
+  max-width: fit-content;
+}
+
+.toast {
+  width: 80px;
+  height: 20px;
+  background-color: red;
+}

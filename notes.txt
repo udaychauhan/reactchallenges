@@ -1,0 +1,40 @@
+Toast API Hints
+Hints and considerations
+    Hint 1. You might want to use Portals to render toast
+    notifications as a child of the body element, to not
+    mess with the z-index.
+
+    Hint 2. You will need to use a timer to dismiss toasts
+    automatically. `useEffect` hook should help with
+    that.
+
+    Hint 3. Consider building these components:
+
+    Toast - simple UI for a toast notification.
+    ToastContainer - a container that renders toasts
+    in a right place in the right order.
+    ToastProvider - place to control hooks and
+    expose the API. API can be a custom hook(s) like
+    `useToast`.
+    
+Nov 23
+Implemented toast running via context api implementation.
+TODO: 
+    1. Attach toast container via portal to body
+    2. ability to add many toasts, hence the data type will be { toasts : [], showToast : (toastText), hideAllToast, hideToast : (toastId)}
+
+Nov 22
+How am I going to do this ?
+1. on button click render a floating message
+    1. the toast container should be rendered and within that we will have toast
+    2. after a while the toast will disappear
+
+# rough notes
+2. toast container attached to body via portal
+3. toast launched via hook  
+    so suppose we are on a page and we click a button, this button click will launch a toast via hook ex. showToast
+    now the toast container will be rendered but its attached to body or is in app.tsx or index.tsx
+    launching it on the main page from the inner page will require some sort of provider, so maybe a context provider
+    how to integrated the showToast with context provider is the challenge
+4. maybe dont use hook in the beggining, on button click as we have context provider just use toast context provider to launch the toast
+    and check in app.tsx as we have provider already attached to see if the state is changed and then render the toast
