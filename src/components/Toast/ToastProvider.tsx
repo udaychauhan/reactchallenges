@@ -29,20 +29,20 @@ interface ToastProviderProps {
 }
 
 export const ToastProvider = ({ children }: ToastProviderProps) => {
-    const [toasts, addToast] = useState<Toasts>([]);
+    const [toasts, setToasts] = useState<Toasts>([]);
     const hideAllToasts = () => {
-        addToast([]);
+        setToasts([]);
     };
     const showToast = (text: string, timeout?: number) => {
         const toastsByDesc = toasts.sort((toastA, toastB) => toastB.id - toastA.id);
         const newToastId = toastsByDesc.length > 0 ? toastsByDesc[0].id + 1 : 1;
         const toast: IToast = { id: newToastId, message: text, timeout: timeout || 2000 };
         const updatedToastsList = toasts.concat(toast);
-        addToast(updatedToastsList);
+        setToasts(updatedToastsList);
     };
     const hideToast = (toastId: number) => {
         const updatedToastList = toasts.filter((toast) => toast.id !== toastId);
-        addToast(updatedToastList);
+        setToasts(updatedToastList);
     };
     return (
         <ToastContext.Provider value={{ hideAllToasts, showToast, toasts, hideToast }}>

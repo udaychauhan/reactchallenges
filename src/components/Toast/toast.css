@@ -1,12 +1,13 @@
 .toast-container {
   right: 20px;
   position: absolute;
-  background: pink;
+  background: rgb(18, 17, 17);
   max-width: fit-content;
 }
 
 .toast {
   width: 80px;
   height: 20px;
-  background-color: red;
+  margin: 20px;
+  background-color: rgb(225, 185, 185);
 }
