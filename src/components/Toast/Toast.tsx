@@ -11,8 +11,9 @@ const Toast: React.FC<IToast> = (toast) => {
         }, toast.timeout);
         return () => clearTimeout(timeout);
     }, [toast]);
+    const yPos = (toast.id - 1) * 100;
     return (
-        <div className="toast" style={{ backgroundPositionY: `${toast.id * 10} px`, position: 'sticky' }}>
+        <div style={{ color: 'red', top: `${yPos}px`, position: 'absolute' }} className="toast" key={toast.id}>
             {message + ' ' + toast.id}
         </div>
     );
