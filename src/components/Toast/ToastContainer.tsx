@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import './toast.css';
 import Toast from './Toast';
 import { useToastContext } from './ToastProvider';

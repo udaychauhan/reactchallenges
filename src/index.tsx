@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
+import ToastContainer from './components/Toast/ToastContainer';
 import { ToastProvider } from './components/Toast/ToastProvider';
 import './index.css';
 
@@ -14,6 +16,7 @@ import './index.css';
 ReactDOM.render(
     <React.StrictMode>
         <ToastProvider>
+            <ToastContainer />
             <App />
         </ToastProvider>
     </React.StrictMode>,

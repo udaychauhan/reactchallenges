@@ -1,26 +1,16 @@
 import React from 'react';
-import ToastContainer from './components/Toast/ToastContainer';
-import { useToastContext } from './components/Toast/ToastProvider';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ToastCheck from './Page/ToastCheck';
+import ToastCheckAdv from './Page/ToastCheckAdv';
+
 const App: React.FC = () => {
-    const { showToast } = useToastContext();
     return (
-        <div>
-            <ToastContainer />
-            <button
-                onClick={() => {
-                    showToast(`This toast is generated at ${new Date().getTime()}`);
-                }}
-            >
-                Add Toast
-            </button>
-            <button
-                onClick={() => {
-                    // hideToast(toastId);
-                }}
-            >
-                Remove Toast
-            </button>
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/toast-check" element={<ToastCheck />} />
+                <Route path="/" element={<ToastCheckAdv />} />
+            </Routes>
+        </BrowserRouter>
     );
 };
 
