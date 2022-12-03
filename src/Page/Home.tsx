@@ -2,14 +2,16 @@ import { useToastContext } from '../components/Toast/ToastProvider';
 import React from 'react';
 import { redirect, useNavigate } from 'react-router-dom';
 
-const ToastCheckAdv: React.FC = () => {
+const Home: React.FC = () => {
     const { showToast } = useToastContext();
     const navigate = useNavigate();
     return (
         <div>
             <button
                 onClick={() => {
-                    showToast(`This toast is generated at ${new Date().getTime()}`);
+                    showToast(
+                        `This toast is generated at ${new Date().getHours()} : ${new Date().getMinutes()} : ${new Date().getSeconds()}. Have Fun !!`,
+                    );
                 }}
             >
                 Add Toast
@@ -26,4 +28,4 @@ const ToastCheckAdv: React.FC = () => {
     );
 };
 
-export default ToastCheckAdv;
+export default Home;

@@ -7,7 +7,9 @@ const ToastCheck: React.FC = () => {
         <div>
             <button
                 onClick={() => {
-                    showToast(`This toast is generated at ${new Date().getTime()}`);
+                    showToast(
+                        `This toast is generated at ${new Date().getHours()} : ${new Date().getMinutes()} : ${new Date().getSeconds()}. Have FUN !!!`,
+                    );
                 }}
             >
                 Add Toast
